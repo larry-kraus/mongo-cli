@@ -9,6 +9,9 @@ var url = "mongodb://localhost:27017/restaurant_db";
 	// 	collection.find().toArray(function(err, docs) {
  	// 		console.log(docs);
  	// });
+
+ 	console.log(db.restaurants);
+
  	var restaurantChoice = prompt("Type a restaurant name and press enter to display the restaurant: ");
 	
 	if (restaurantChoice == "Cookies Corner"){
@@ -17,5 +20,8 @@ var url = "mongodb://localhost:27017/restaurant_db";
  	});
 	} else {
 		console.log("Aw, you don't want to see the restaurants?");
-	}
+	};
+
+	//for (var i = 0; i < )
+
  });
