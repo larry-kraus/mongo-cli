@@ -10,18 +10,35 @@ var url = "mongodb://localhost:27017/restaurant_db";
  	// 		console.log(docs);
  	// });
 
- 	console.log(db.restaurants);
-
  	var restaurantChoice = prompt("Type a restaurant name and press enter to display the restaurant: ");
 	
-	if (restaurantChoice == "Cookies Corner"){
-		collection.find({"name": "Cookies Corner"}).toArray(function(err, docs) {
- 			console.log(docs);
- 	});
-	} else {
+	if (restaurantChoice) {
+		collection.find({"name": restaurantChoice}).toArray(function(err, docs) {
+			console.log(docs);
+		});	
+	}
+	else {
 		console.log("Aw, you don't want to see the restaurants?");
 	};
 
-	//for (var i = 0; i < )
+	//PART TWO
+	var newName = prompt("Enter new restaurant name: ");
+	var newStreet = prompt("Enter new restaurant's street address: ");
+	var newZip = prompt("Enter new restaurant's zipcode: ");
+	var newYelp = prompt("Enter new restaurant's yelp page: ");
+
+	collection.insert({
+      	name: newName,
+      		address : {
+        		street : newStreet,
+        		 zipcode : newZip
+      		},
+      		yelp: newYelp
+	});
+
+	collection.find({"name": newName}).toArray(function(err, docs) {
+			console.log(docs);
+		});
+
 
  });
